@@ -1,0 +1,40 @@
+{
+  "name": "can-hot",
+  "version": "0.1.0",
+  "description": "Hot reloading for canjs components",
+  "main": "can-hot.js",
+  "files": [
+    "can-hot.js",
+    "app",
+    "index.html",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "app": "watchalive",
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whitecolor/can-hot.git"
+  },
+  "keywords": [
+    "can",
+    "canjs",
+    "hot",
+    "reload",
+    "hrm"
+  ],
+  "author": "whitecolor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whitecolor/can-hot/issues"
+  },
+  "homepage": "https://github.com/whitecolor/can-hot#readme",
+  "devDependencies": {
+    "can": "^2.3.11",
+    "jquery": "^2.1.4",
+    "steal": "^0.13.2",
+    "steal-hmr": "github:whitecolor/steal-hmr"
+  }
+}
