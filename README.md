@@ -59,7 +59,7 @@ Try and test how all this works with module's demo app.
 ```bash
 git clone http://github.com/whitecolor/can-hot
 npm install # please, use NPM 3, otherwice remove system.npmAlgorithm in package.json
-npm run start # app will run on 7000, to use other port: npm run app -- --port 9876
+npm run start # app will run on 7000, to use other port: npm run start -- --port your_port
 ```
 Open your browser http://localhost:7000
 You can changes files `js/css/less` *inside the app folder* and see what happens
