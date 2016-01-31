@@ -8,13 +8,12 @@
     import HMR from 'steal-hmr'
     import canHot from 'can-hot'
     import $ from 'jquery'
+
     // map styles to use steal-hmr build-in css hot-reload
     System.config({map: {
       $css: 'steal-hmr/css',
       $less: 'steal-hmr/css'
     }})
-
-    System.config({baseURL: 'app'})
 
     // tells to preserve state for reloaded component instances
     // component state is not very good thing

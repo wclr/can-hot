@@ -108,7 +108,7 @@ can.Component.prototype.setup = function (el, componentTagData) {
 
     if (canHot.preserveState) {
       delete state['%root']
-      $el.viewModel().attr(viewModel.attr())
+      $el.viewModel().attr(state)
     }
   }
   oldPrototypeSetup.apply(this, arguments)

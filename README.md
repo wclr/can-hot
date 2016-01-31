@@ -9,7 +9,7 @@
 [CanJS](https://github.com/canjs/canjs) is a great framework (library) for building dynamic web applications. 
 It gives out of the box everything you need to build modern dynamic web UIs, while keeping it simple.
 
-**Can-Hot** is a small add-on aimed to make your DX (developers experience) much more pleasant and less frictionless,
+**Can-Hot** is a small add-on aimed to make your DX (developers experience) much more pleasant and with less friction,
 it allows you to **tweak can.Components in realtime** the same way as for example [React Hot Loader](http://gaearon.github.io/react-hot-loader/)
 for React does, so you need rarely bother about full page reloads while application development process.
 
@@ -64,6 +64,9 @@ npm run start # app will run on 7000, to use other port: npm run start -- --port
 Open your browser http://localhost:7000
 You can changes files `js/css/less` *inside the app folder* and see what happens
 Notice that css/less reload do not made any changes to apps current state
+
+*NB!* This demo app uses watchalive server-side pre-compilation for *.js sources with 
+[BabelJS](https://babeljs.io) just for the sake of example of configuration.
 
 ##Licence
 
