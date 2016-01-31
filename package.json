@@ -43,13 +43,19 @@
     "watchalive-less": "^0.1.0"
   },
   "system": {
-    "baseURL": "app",
+    "envs": {
+      "can-hot-dev": {
+        "baseURL": "app"
+      }
+    },
     "npmAlgorithm": "flat",
     "transpiler": "babel",
     "babelOptions": {
       "blacklist": []
     },
-    "map": {},
+    "map": {
+      "xxx": "yyy"
+    },
     "npmIgnore": [
       "watchalive",
       "watchalive-less",

@@ -66,7 +66,7 @@ You can changes files `js/css/less` *inside the app folder* and see what happens
 Notice that css/less reload do not made any changes to apps current state
 
 *NB!* This demo app uses watchalive server-side pre-compilation for *.js sources with 
-[BabelJS](https://babeljs.io) just for the sake of example of configuration.
+[BabelJS](https://babeljs.io) for the sake of example.
 
 ##Licence
 
