@@ -1,0 +1,97 @@
+@import '../variables';
+
+.trackColor (@state){
+  &.@{state} input {
+    @back: "@{state}-color";
+    &::-webkit-slider-thumb {
+      background: @@back;
+    }
+    &::-moz-range-thumb {
+      background: @@back;
+    }
+  }
+}
+
+bmi-slider {
+  display: block;
+  position: relative;
+  width: 500px;
+  margin-bottom: 20px;
+  .label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  input {
+    width: 100%;
+  }
+
+  .trackColor(underweight);
+  .trackColor(healthy);
+  .trackColor(overweight);
+  .trackColor(obese);
+  .trackColor(obese2);
+  .trackColor(obese3);
+
+  .notes {
+    color: #CCC;
+    .max {
+      float: right;
+    }
+  }
+  input[type=range]{
+    -webkit-appearance: none;
+  }
+
+  input[type=range]::-webkit-slider-runnable-track {
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    //background: goldenrod;
+    margin-top: -4px;
+  }
+
+  input[type=range]:focus {
+    outline: none;
+  }
+
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+  }
+
+  input[type=range]{
+    /* fix for FF unable to apply focus style bug  */
+    border: 1px solid white;
+  }
+
+  input[type=range]::-moz-range-track {
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+  }
+
+  input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+  }
+
+  input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+  }
+
+  input[type=range]:focus::-moz-range-track {
+    background: #ccc;
+  }
+}

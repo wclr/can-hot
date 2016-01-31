@@ -11,7 +11,7 @@
     "package.json"
   ],
   "scripts": {
-    "app": "watchalive",
+    "start": "watchalive",
     "test": "standard"
   },
   "repository": {
@@ -35,6 +35,26 @@
     "can": "^2.3.11",
     "jquery": "^2.1.4",
     "steal": "^0.13.2",
-    "steal-hmr": "github:whitecolor/steal-hmr"
+    "steal-hmr": "^0.1.0",
+    "watchalive": "^1.1.3",
+    "watchalive-less": "^0.1.0"
+  },
+  "system": {
+    "npmAlgorithm": "flat",
+    "transpiler": "babel",
+    "babelOptions": {
+      "blacklist": []
+    },
+    "map": {},
+    "npmIgnore": [
+      "watchalive",
+      "watchalive-less"
+    ]
+  },
+  "watchalive": {
+    "data": true,
+    "plugin": [
+      "less"
+    ]
   }
 }

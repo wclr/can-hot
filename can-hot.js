@@ -28,15 +28,27 @@ const canHot = {
   tagToComponent: [],
   insertedEvent: true,
   removedEvent: true,
-  before: function () {
-  },
-  after: function () {
+  reload: function () {
+    if (!canHot.reloadedTags.length) return
+
     var tags = canHot.reloadedTags.reduce((prev, tag) =>
         prev.concat(can.makeArray($(tag)))
       , [])
     removeContainedElements(tags)
     tags.forEach(tag => tag.forceUpdate())
     canHot.reloadedTags = []
+  },
+  after: function () {
+    canHot.reload()
+  },
+  config: function (options) {
+    for (let key in options) {
+      if (canHot.hasOwnProperty(key)) {
+        canHot[key] = options[key]
+      } else {
+        console.warn(`[can-hot] illegal config option ${key}`)
+      }
+    }
   }
 }
 
@@ -63,6 +75,7 @@ can.Component.prototype.setup = function (el, componentTagData) {
   el.forceUpdate = function () {
     var $el = can.$(el)
     var viewModel = $el.viewModel()
+    var state = viewModel.attr()
 
     var controls = can.data($el, 'controls')
     if (!controls) {
@@ -94,9 +107,8 @@ can.Component.prototype.setup = function (el, componentTagData) {
     }
 
     if (canHot.preserveState) {
-      viewModel.each((val, attr) => {
-        $el.viewModel(attr, val)
-      })
+      delete state['%root']
+      $el.viewModel().attr(viewModel.attr())
     }
   }
   oldPrototypeSetup.apply(this, arguments)

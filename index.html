@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
-  <script src="/node_modules/steal/steal.js" config="/package.json!npm">
+  <script src="/node_modules/steal/steal.js" config="../package.json!npm">
     import HMR from 'steal-hmr'
+    import canHot from 'can-hot'
     import $ from 'jquery'
     // map styles to use steal-hmr build-in css hot-reload
     System.config({map: {
@@ -13,9 +14,16 @@
       $less: 'steal-hmr/css'
     }})
 
+    System.config({baseURL: 'app'})
+
+    // tells to preserve state for reloaded component instances
+    // component state is not very good thing
+    // and side effects are possible, so it is `false` by default
+    canHot.config({preserveState: true})
+
     new HMR({
       // auto load of main module will happen
-      main: 'app/app',
+      main: 'app',
       // outputs some debug messages
       debug: true,
       // explicitly state not dependants reload,
@@ -23,10 +31,13 @@
       dependants: false,
       // tells when to reload whole page
       page: [/index\.html/, /node_modules/],
+      // here we plugin in canHot, so it will link it with HMR events
+      plugin: [canHot],
       // event that gives file changes
       handle: watchalive.onFiles,
       // teardown happens when 'main' will be reloaded
-      teardown: () => $('dream-app').remove()
+      // we just remove root app component
+      teardown: () => $('bmi-app').remove()
     })
 
   </script>
