@@ -13,6 +13,8 @@ It gives out of the box everything you need to build modern dynamic web UIs, whi
 it allows you to **tweak can.Components in realtime** the same way as for example [React Hot Loader](http://gaearon.github.io/react-hot-loader/)
 for React does, so you need rarely bother about full page reloads while application development process.
 
+![can-hot](https://cloud.githubusercontent.com/assets/736697/12709893/5b1727e8-c8d2-11e5-8f69-faf73ede4559.gif)
+
 ##Install
 
 ```bash
@@ -31,22 +33,21 @@ and [Watchalive Dev Server](https://github.com/whitecolor/watchalive).
   import HMR from 'steal-hmr'
   import canHot from 'can-hot'
    
-  // we can call `canHot.reload()` method any time when 
+  // We can call `canHot.reload()` method any time when 
   // some `can.Component` has been replaced by new instance
-  // but we are using it here with Steal-HRM    
+  // but we need to know when it actually happens, 
+  // so are using it here with Steal-HMR.    
 
-  // we may instruct Can-Hot to preserve state of reloaded components.
-  // Component having their own state is not very good thing
+  // We may instruct Can-Hot to preserve state of reloaded components.
+  // Components having their own state is not very good thing
   // and side effects are possible, so it is `false` by default
   canHot.config({preserveState: true})
 
   new HMR({                    
-    main: 'app',    
-            
-    // here we just attach Can-Hot's `after` hook to steal-HMR
-    // so it knows when reloading are finished
-    plugin: [canHot],    
-    
+    main: 'app',                
+    // Here we just attach Can-Hot's `after` hook to Steal-HMR,
+    // so Can-Hot knows when reloading are finished.
+    plugin: [canHot],       
     handle: watchalive.onFiles,   
     teardown: () => $('bmi-app').remove()
   })

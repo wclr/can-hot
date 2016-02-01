@@ -48,14 +48,11 @@
         "baseURL": "app"
       }
     },
-    "npmAlgorithm": "flat",
     "transpiler": "babel",
     "babelOptions": {
       "blacklist": []
     },
-    "map": {
-      "xxx": "yyy"
-    },
+    "npmAlgorithm": "flat",
     "npmIgnore": [
       "watchalive",
       "watchalive-less",
