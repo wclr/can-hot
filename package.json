@@ -11,7 +11,7 @@
     "package.json"
   ],
   "scripts": {
-    "start": "watchalive",
+    "start": "opener http://localhost:7000 && watchalive",
     "test": "standard"
   },
   "repository": {
@@ -37,6 +37,7 @@
     "babel-preset-stage-0": "^6.3.13",
     "can": "^2.3.11",
     "jquery": "^2.1.4",
+    "opener": "^1.4.1",
     "steal": "^0.13.2",
     "steal-hmr": "^0.1.0",
     "watchalive": "^1.1.4",
@@ -58,10 +59,14 @@
   },
   "watchalive": {
     "data": true,
-    "skip": ["node_modules/**", "package.json"],
+    "skip": [
+      "node_modules/**",
+      "package.json"
+    ],
     "plugin": [
       "less",
-      ["*.js",
+      [
+        "*.js",
         "babel-core",
         {
           "presets": [

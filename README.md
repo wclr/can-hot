@@ -54,6 +54,14 @@ and [Watchalive Dev Server](https://github.com/whitecolor/watchalive).
 </script> 
 ```
 
+##API
+Your can configure using `canHot.config` following options:   
+- **preserveState** (`false`) - keep state of reloaded components (attribute values on `viewModel`
+will be restored) 
+- **insertedEvent** (`true`) - execute `inserted` event method
+- **removedEvent** (`true`) - execute `removed` event method
+- **hotEvents** (`true`) - execute `beforeHot` and `afterHot` component's events method
+
 ##Try and explore sources of demo app
 
 Try and test how all this works with module's demo app.

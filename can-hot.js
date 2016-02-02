@@ -28,6 +28,7 @@ const canHot = {
   tagToComponent: [],
   insertedEvent: true,
   removedEvent: true,
+  hotEvents: true,
   reload: () => {
     if (!canHot.reloadedTags.length) return
 
@@ -72,6 +73,25 @@ can.Component.setup = function (stat, proto) {
   canHot.tagToComponent[proto.tag] = this
 }
 
+var getControl = ($el) => {
+  var controls = can.data($el, 'controls')
+  if (!controls) {
+    console.warn('[can-hot] element does not have "controls" data', $el)
+    return
+  }
+  var viewModel = $el.viewModel()
+  return controls.filter((control) =>
+    control.viewModel === viewModel
+  )[0]
+}
+
+var checkAndRunEvent = ($el, event, check) => {
+  var control = check && getControl($el)
+  if (control && typeof control[event] === 'function') {
+    control[event]($el, {})
+  }
+}
+
 var oldPrototypeSetup = can.Component.prototype.setup
 
 can.Component.prototype.setup = function (el, componentTagData) {
@@ -82,34 +102,17 @@ can.Component.prototype.setup = function (el, componentTagData) {
     var viewModel = $el.viewModel()
     var state = viewModel.attr()
 
-    var controls = can.data($el, 'controls')
-    if (!controls) {
-      console.warn('[hot-reload/can] element does not have "controls" data', $el)
-    } else {
-      controls.forEach((control) => {
-        if (control.viewModel === viewModel) {
-          if (canHot.removedEvent) {
-            // we do not trigger removed because it breaks things,
-            // but call "removed" method because if often contains some clean up
-            // can.trigger($el, 'removed')
-            control.removed && control.removed($el, {})
-          }
-          control.destroy()
-        }
-      })
-    }
+    checkAndRunEvent($el, 'removed', canHot.removedEvent)
+    checkAndRunEvent($el, 'beforeHot', canHot.hotEvents)
+    checkAndRunEvent($el, 'destroy', true)
 
     $el.html('')
-
     can.data($el, 'preventDataBindings', false)
-
     var Component = canHot.tagToComponent[self.tag]
-    // new Component(el, componentTagData)
     Component.prototype.setup(el, componentTagData)
 
-    if (canHot.insertedEvent) {
-      can.trigger($el, 'inserted')
-    }
+    checkAndRunEvent($el, 'inserted', canHot.insertedEvent)
+    checkAndRunEvent($el, 'afterHot', canHot.hotEvents)
 
     if (canHot.preserveState) {
       delete state['%root']
