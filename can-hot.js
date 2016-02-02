@@ -28,7 +28,7 @@ const canHot = {
   tagToComponent: [],
   insertedEvent: true,
   removedEvent: true,
-  reload: function () {
+  reload: () => {
     if (!canHot.reloadedTags.length) return
 
     var tags = canHot.reloadedTags.reduce((prev, tag) =>
@@ -38,10 +38,15 @@ const canHot = {
     tags.forEach(tag => tag.forceUpdate())
     canHot.reloadedTags = []
   },
-  after: function () {
+  after: () => {
     canHot.reload()
   },
-  config: function (options) {
+  teardown: () => {
+    can.route &&
+    can.route._teardown &&
+    can.route._teardown()
+  },
+  config: (options) => {
     for (let key in options) {
       if (canHot.hasOwnProperty(key)) {
         canHot[key] = options[key]

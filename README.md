@@ -29,7 +29,7 @@ for hot-reloading. Given example uses [Steal-HMR](https://github.com/whitecolor/
 and [Watchalive Dev Server](https://github.com/whitecolor/watchalive). 
 
 ```html
-<script src="/node_modules/steal/steal.js" config="/package.json!npm">    
+<script src="/node_modules/steal/steal.js">    
   import HMR from 'steal-hmr'
   import canHot from 'can-hot'
    
