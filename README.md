@@ -20,7 +20,7 @@ for React does, so you need rarely bother about full page reloads while applicat
 ```bash
 npm install can-hot
 ```
-Implicitly depends on `can` and `jquery` npm modules.
+**NB!** Implicitly depends on `can@2.3.x` and `jquery` npm modules.
 
 ##Usage
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
-  <script src="/node_modules/steal/steal.js" env="can-hot-dev" config="/package.json!npm">
+  <script src="/node_modules/steal/steal.js" main="@empty">
     import HMR from 'steal-hmr'
     import canHot from 'can-hot'
     import $ from 'jquery'
@@ -22,7 +22,7 @@
 
     new HMR({
       // auto load of main module will happen
-      main: 'app',
+      main: 'app/app',
       // outputs some debug messages
       debug: true,
       // explicitly state not dependants reload,

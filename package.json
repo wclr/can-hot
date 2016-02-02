@@ -1,6 +1,6 @@
 {
   "name": "can-hot",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Hot reloading for canjs components",
   "main": "can-hot.js",
   "files": [
@@ -43,11 +43,6 @@
     "watchalive-less": "^0.1.0"
   },
   "system": {
-    "envs": {
-      "can-hot-dev": {
-        "baseURL": "app"
-      }
-    },
     "transpiler": "babel",
     "babelOptions": {
       "blacklist": []

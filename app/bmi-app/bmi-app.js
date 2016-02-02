@@ -1,7 +1,7 @@
 import can from 'can/'
 import 'can/map/define/'
 import './style.less!'
-import 'bmi-slider/'
+import '../bmi-slider/'
 
 const bmiTable = {
   underweight: {min: 0, max: 18.5},
@@ -24,8 +24,8 @@ can.Component.extend({
   <div class="sub">
     BMI is a Body Mass Index defined as the body mass divided by the square of the body height.
   </div>
-  <bmi-slider {(value)}="weight" label="Weight (kg)" min="20" max="180" class="{{result}}"/>
-  <bmi-slider {(value)}="height" label="Height (cm)" min="50" max="220" class="{{result}}"/>
+  <bmi-slider {(value)}="weight" label="Weight (kg)" min="20" max="180" class=" {{result}}"/>
+  <bmi-slider {(value)}="height" label="Height (cm)" min="50" max="220" class=" {{result}}"/>
   <div class="result">Your BMI is {{bmi}} - <span class="{{result}}">you are {{resultName}}</span>
   </div>
   `),
