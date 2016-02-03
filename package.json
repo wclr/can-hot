@@ -42,7 +42,7 @@
     "steal": "^0.13.2",
     "steal-hmr": "^0.1.0",
     "watchalive": "^1.1.4",
-    "watchalive-less": "^0.1.0"
+    "watchalive-less": "^0.1.1"
   },
   "system": {
     "transpiler": "babel",
@@ -68,7 +68,7 @@
     "plugin": [
       "less",
       [
-        "*.js",
+        "**/*.js",
         "babel-core",
         {
           "presets": [
