@@ -1,6 +1,6 @@
 {
   "name": "can-hot",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Hot reloading for canjs components",
   "main": "can-hot.js",
   "files": [
@@ -41,7 +41,7 @@
     "opener": "^1.4.1",
     "steal": "^0.13.2",
     "steal-hmr": "^0.1.0",
-    "watchalive": "^1.1.4",
+    "watchalive": "^1.1.6",
     "watchalive-less": "^0.1.1"
   },
   "system": {
@@ -63,7 +63,7 @@
     "data": true,
     "skip": [
       "node_modules/**",
-      "package.json"
+      "**/package.json"
     ],
     "plugin": [
       "less",
