@@ -2,7 +2,7 @@ import can from 'can'
 import $ from 'jquery'
 
 // set hotDeps on template files for hot-reload
-if (typeof System !== 'undefined' && System.loads) {
+if (typeof System !== 'undefined') {
   var instantiate = System.instantiate
   System.instantiate = function (load) {
     if (load.name && /(stache|mustache|ejs)\/system/.test(load.name)) {
