@@ -1,6 +1,6 @@
 {
   "name": "can-hot",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Hot reloading for canjs components",
   "main": "can-hot.js",
   "files": [
