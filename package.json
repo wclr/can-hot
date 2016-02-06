@@ -1,6 +1,6 @@
 {
   "name": "can-hot",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Hot reloading for canjs components",
   "main": "can-hot.js",
   "files": [
@@ -60,7 +60,7 @@
     ]
   },
   "watchalive": {
-  "debug": true,
+    "debug": true,
     "data": true,
     "skip": [
       "node_modules/**",
