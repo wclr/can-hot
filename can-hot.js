@@ -22,6 +22,12 @@ var removeContainedElements = (elements) => {
   }
 }
 
+function forceUpdate (tag) {
+  typeof tag.forceUpdate === 'function'
+    ? tag.forceUpdate()
+    : console.warn(`[can-hot] tag ${tag.tagName} has not forceUpdate method`)
+}
+
 const canHot = {
   preserveState: false,
   reloadedTags: [],
@@ -36,7 +42,7 @@ const canHot = {
         prev.concat(can.makeArray($(tag)))
       , [])
     removeContainedElements(tags)
-    tags.forEach(tag => tag.forceUpdate())
+    tags.forEach(forceUpdate)
     canHot.reloadedTags = []
   },
   after: () => {
