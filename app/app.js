@@ -6,5 +6,5 @@ import './app.css'
 import './bmi-app/'
 
 $(() => {
-  $('body').append(can.stache(`<bmi-app/>`))
+  $('body').append(can.stache('<bmi-app/>'))
 })

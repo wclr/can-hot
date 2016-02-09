@@ -13,7 +13,8 @@
   "scripts": {
     "start": "watchalive",
     "start-open": "opener http://localhost:7000 && watchalive",
-    "test": "standard"
+    "test-open": "standard && opener http://localhost:7000/test.html && watchalive",
+    "standard": "standard"
   },
   "repository": {
     "type": "git",
@@ -38,9 +39,13 @@
     "babel-preset-stage-0": "^6.3.13",
     "can": "2.3.11",
     "jquery": "2.1.4",
+    "mocha": "^2.4.5",
     "opener": "^1.4.1",
     "steal": "^0.13.2",
     "steal-hmr": "^0.1.0",
+    "steal-mocha": "0.0.3",
+    "tap-browser-color": "^0.1.2",
+    "tape-standalone": "^4.4.0",
     "watchalive": "^1.1.6",
     "watchalive-less": "^0.1.1"
   },

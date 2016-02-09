@@ -1,0 +1,3 @@
+<h1>This is test component updated.</h1>
+<h2>{{upper name}}</h2>
+<h3>{{age}}</h3>

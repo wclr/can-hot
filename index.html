@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
-  <script src="/node_modules/steal/steal.js" main="@empty">
+  <script src="./node_modules/steal/steal.js" main="@empty">
     import HMR from 'steal-hmr'
     import canHot from 'can-hot'
     import $ from 'jquery'
@@ -21,22 +21,22 @@
     canHot.config({preserveState: true})
 
     new HMR({
-      // auto load of main module will happen
-      main: 'app/app',
-      // outputs some debug messages
-      debug: true,
-      // explicitly state not dependants reload,
-      // actually `false` by default
-      dependants: false,
-      // tells when to reload whole page
-      page: [/index\.html/, /node_modules/],
-      // here we plugin in canHot, so it will link it with HMR events
-      plugin: [canHot],
-      // event that gives file changes
-      handle: watchalive.onFiles,
-      // teardown happens when 'main' will be reloaded
-      // we just remove root app component
-      teardown: () => $('bmi-app').remove()
+          // auto load of main module will happen
+          main: 'app/app',
+          // outputs some debug messages
+          debug: true,
+          // explicitly state not dependants reload,
+          // actually `false` by default
+          dependants: false,
+          // tells when to reload whole page
+          page: [/index\.html/, /node_modules/],
+          // here we plugin in canHot, so it will link it with HMR events
+          plugin: [canHot],
+          // event that gives file changes
+          handle: watchalive.onFiles,
+          // teardown happens when 'main' will be reloaded
+          // we just remove root app component
+          teardown: () => $('bmi-app').remove()
     })
 
   </script>
