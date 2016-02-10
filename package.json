@@ -14,6 +14,7 @@
     "start": "watchalive",
     "start-open": "opener http://localhost:7000 && watchalive",
     "test-open": "standard && opener http://localhost:7000/test.html && watchalive",
+    "build-app": "rm -rf dist && steal-tools build --main app/app --no-minify --bundle-steal",
     "standard": "standard"
   },
   "repository": {
@@ -68,6 +69,7 @@
     "debug": true,
     "data": true,
     "skip": [
+      "dist/**",
       "node_modules/**",
       "**/package.json"
     ],
