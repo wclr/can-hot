@@ -15,6 +15,19 @@ can.Component.extend({
     upper: (x) => {
       return x().toUpperCase()
     }
+  },
+
+  events: {
+
+    inserted: 'someMethod',
+
+    someMethod: function () {
+      window._updatedInsertedCalled = true
+    },
+
+    removed: function () {
+      window._updatedInsertedCalled = false
+    }
   }
 
 })

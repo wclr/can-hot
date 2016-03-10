@@ -93,8 +93,13 @@ var getControl = ($el) => {
 
 var checkAndRunEvent = ($el, event, check) => {
   var control = check && getControl($el)
-  if (control && typeof control[event] === 'function') {
-    control[event]($el, {})
+  if (control) {
+    if (typeof control[event] === 'string'){
+      event = control[event]
+    }
+    if (typeof control[event] === 'function'){
+      control[event]($el, {})
+    }
   }
 }
 

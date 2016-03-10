@@ -26,21 +26,31 @@ test('Reload updated component with preserveState', (t) => {
       canHot.reloadedTags[0] === 'test-component',
       'reloadedTags contain one test-component')
 
+    t.ok(window._insertedCalled === true,
+      'Inserted method called')
+
     canHot.reload()
     t.ok(canHot.reloadedTags.length === 0, 'reloadedTags cleared')
     t.ok(/updated/.test($('h1').text()), 'Title updated')
     t.ok(/JESUS CHRIST/.test($('h2').text()), 'Name updated')
     t.ok($('h3').text() === '33', 'Age stays the same')
 
-    canHot.config({preserveState: false})
-    canHot.reloadedTags.push('test-component')
-    canHot.reload()
+    t.ok(window._insertedCalled === false,
+      'Removed method called on reloaded component')
+
+    t.ok(window._updatedInsertedCalled === true,
+      'Inserted method called on updated component')
 
     t.end()
   })
 })
 
 test('Reload without preserveState', (t) => {
+
+  canHot.config({preserveState: false})
+  canHot.reloadedTags.push('test-component')
+  canHot.reload()
+
   canHot.config({preserveState: false})
   canHot.reloadedTags.push('test-component')
   canHot.reload()

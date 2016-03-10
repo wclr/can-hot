@@ -1,8 +1,8 @@
-<div class="labelx">{{label}}: {{value}}</div>
+<div class="label">{{label}}: {{value}}</div>
 <input type="range"
-       ($input)="setVal($element.val())"
-       {($value)}="value"
-       min="{{min}}" max="{{max}}"
+ ($input)="setVal($element.val())"
+ {($value)}="value"
+ min="{{min}}" max="{{max}}"
 />
 <div class="notes">
   <span class="min">min: {{min}}</span>

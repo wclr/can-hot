@@ -9,6 +9,18 @@ can.Component.extend({
   viewModel: {
     name: 'Jesus Christ',
     age: 33
+  },
+
+  events: {
+    inserted: 'someMethod',
+
+    someMethod: function () {
+      window._insertedCalled = true
+    },
+
+    removed: function () {
+      window._insertedCalled = false
+    }
   }
 
 })
