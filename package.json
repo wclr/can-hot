@@ -51,10 +51,6 @@
     "watchalive-less": "^0.1.1"
   },
   "system": {
-    "transpiler": "babel",
-    "babelOptions": {
-      "blacklist": []
-    },
     "npmAlgorithm": "flat",
     "npmIgnore": [
       "watchalive",
