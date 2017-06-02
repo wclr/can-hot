@@ -120,7 +120,7 @@ can.Component.prototype.setup = function (el, componentTagData) {
     $el.html('')
     can.data($el, 'preventDataBindings', false)
     var Component = canHot.tagToComponent[self.tag]
-    Component.prototype.setup(el, componentTagData)
+    new Component(el, componentTagData)
 
     checkAndRunEvent($el, 'inserted', canHot.insertedEvent)
     checkAndRunEvent($el, 'afterHot', canHot.hotEvents)
